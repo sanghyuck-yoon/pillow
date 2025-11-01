@@ -148,7 +148,7 @@ export default function Home() {
               className="bg-[#197fe6] text-white h-12 px-5 py-0 rounded-lg min-w-[84px] max-w-[480px] w-full md:w-auto flex items-center justify-center hover:bg-[#1565c0] transition-colors"
             >
               <span className="text-base font-bold tracking-[0.24px] whitespace-nowrap" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                【한국 한정】우선 예약 리스트에 등록하기
+                우선 예약 리스트에 등록하기
               </span>
             </button>
           </div>

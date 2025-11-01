@@ -1,4 +1,4 @@
-import { supabase } from '../../../lib/supabase'; // Adjust the path as needed
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   const { email } = await req.json();

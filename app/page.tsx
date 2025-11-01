@@ -128,6 +128,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-center gap-6 px-4 md:px-12 lg:px-48 py-10 md:py-20 relative w-full">
           <div className="flex flex-col gap-6 items-start justify-center relative z-10 w-full md:w-auto">
+            <div className="h-[200px] md:h-[252px] max-w-full md:max-w-[448px] relative rounded-lg w-full md:w-[448px] z-0">
+              <div className="absolute inset-0 overflow-hidden rounded-lg">
+                <img alt="Yawaré 베개" className="absolute h-full w-full object-cover" src={imgImage} />
+              </div>
+            </div>
             <div className="flex flex-col gap-2 items-start relative w-full">
               <h2 className="text-3xl md:text-4xl lg:text-[48px] font-black text-[#333333] leading-none tracking-[-1.584px] w-full" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
                 잠자는 동안의 '수면 주름', 관리하고 계신가요?
@@ -151,11 +156,6 @@ export default function Home() {
                 우선 예약 리스트에 등록하기
               </span>
             </button>
-          </div>
-          <div className="h-[200px] md:h-[252px] max-w-full md:max-w-[448px] relative rounded-lg w-full md:w-[448px] z-0">
-            <div className="absolute inset-0 overflow-hidden rounded-lg">
-              <img alt="Yawaré 베개" className="absolute h-full w-full object-cover" src={imgImage} />
-            </div>
           </div>
         </section>
 

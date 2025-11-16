@@ -4,16 +4,26 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 
 // Figma 이미지 URL 상수
-const imgImage = "https://www.figma.com/api/mcp/asset/5385dc12-05d0-419a-83d7-3de2c92ce30a";
-const imgImage1 = "https://www.figma.com/api/mcp/asset/163e019a-7a08-4930-8fae-f69f23a516cb";
-const imgImage2 = "https://www.figma.com/api/mcp/asset/cd41fd14-78f2-4d56-bb72-3c21bc5175a5";
+const heroImage = "/image/Hero.png";
+const founderImage = "/image/founder.png";
+const productImage1 = "/image/product1.png";
+const productImage2 = "/image/product2.png";
+const feature1 = "/image/feature1.png";
+const feature1_2 = "/image/feature1_2.png";
+const feature2 = "/image/feature2.png";
+const feature2_2 = "/image/feature2_2.png";
+const feature2_3 = "/image/feature2_3.png";
+const feature3 = "/image/feature3.png";
+const sizeSpec = "/image/size.png";
+const brandlogo = "/image/brandlogo.png";
+
 const imgImage3 = "https://www.figma.com/api/mcp/asset/f8cb806c-7aec-44b8-8595-5f4365e9c43d";
 const imgCustomerPhoto = "https://www.figma.com/api/mcp/asset/2fe2b63a-bd5e-4ea7-9a45-fad6a0723c78";
 const imgCustomerPhoto1 = "https://www.figma.com/api/mcp/asset/6b3d65d6-cd56-44a5-8c88-1fdc243194ce";
 const imgCustomerPhoto2 = "https://www.figma.com/api/mcp/asset/527c6bcf-2c4d-4658-be31-a6dac29e7bba";
-const imgIcon = "https://www.figma.com/api/mcp/asset/b6edfa13-136a-429a-a6d8-8128b49d0ae5";
-const imgIcon1 = "https://www.figma.com/api/mcp/asset/0eac86ed-1a8c-45e3-b24b-84fdc5af82eb";
-const imgIcon2 = "https://www.figma.com/api/mcp/asset/9bbbea3a-54a8-417f-acc0-49cbea055b3a";
+const imgIcon = "/image/pictogram1.png";
+const imgIcon1 = "/image/pictogram2.png";
+const imgIcon2 = "/image/pictogram3.png";
 const imgIcon3 = "https://www.figma.com/api/mcp/asset/f505c127-e650-416a-96cf-0d9f3e3d9532";
 const imgIcon4 = "https://www.figma.com/api/mcp/asset/f044becd-5c7f-4ea7-830e-85cdb1bf12b3";
 const imgIcon5 = "https://www.figma.com/api/mcp/asset/d9fa8923-6aa3-4f18-99a4-d93ce5660c15";
@@ -26,7 +36,7 @@ export default function Home() {
   const [submitMessage, setSubmitMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
-  const targetDate = useMemo(() => new Date('2025-11-10T00:00:00'), []);
+  const targetDate = useMemo(() => new Date('2025-12-10T00:00:00'), []);
 
   const fetchReservations = useCallback(async () => {
     try {
@@ -118,34 +128,37 @@ export default function Home() {
             className="bg-[#197fe6] text-white px-4 py-2 rounded-full text-sm font-bold tracking-[0.21px] hover:bg-[#1565c0] transition-colors"
             style={{ fontFamily: 'var(--font-noto-sans-kr)' }}
           >
-            예약하기
+            特別予約
           </button>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="w-full pt-16">
+      <div className="w-full pt-16" style={{background: 'var(--background)'}}>
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-center gap-6 px-4 md:px-12 lg:px-48 py-10 md:py-20 relative w-full">
           <div className="flex flex-col gap-6 items-start justify-center relative z-10 w-full md:w-auto">
-            <div className="h-[200px] md:h-[252px] max-w-full md:max-w-[448px] relative rounded-lg w-full md:w-[448px] z-0">
-              <div className="absolute inset-0 overflow-hidden rounded-lg">
-                <img alt="Yawaré 베개" className="absolute h-full w-full object-cover" src={imgImage} />
-              </div>
-            </div>
             <div className="flex flex-col gap-2 items-start relative w-full">
-              <h2 className="text-3xl md:text-4xl lg:text-[48px] font-black text-[#333333] leading-none tracking-[-1.584px] w-full" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                잠자는 동안의 '수면 주름', 관리하고 계신가요?
+              <h2 className="text-3xl md:text-4xl lg:text-[48px] text-center font-black text-[#333333] leading-none tracking-[-1.584px] w-full" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                  眠っている間も肌は圧迫を受けます。
               </h2>
-              <p className="text-base md:text-lg text-[#333333] leading-6 mt-4" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                매일 밤 무의식적인 압박이 당신의 얼굴과 목의 주름을 깊게 만듭니다. 과학적으로 설계된 베개로 아름다움을 지켜보세요.
+              <p className="text-[14px] text-center text-[#333333] leading-none tracking-[-1.584px] w-full" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                매일 밤, 보이지 않는 압력이 얼굴과 목을 누르고 있습니다.<br></br>
+                그 미세한 반복이, 아침의 인상을 바꿉니다.
+              </p>
+              <p className="text-[16px] text-center font-bold text-[#333333] leading-none tracking-[-1.584px] w-full" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                &quot;피부의 시간을 되돌리는 수면, 그 시작을 베개에서&quot;.
               </p>
             </div>
-            
+            <div className="max-w-full relative rounded-lg w-full z-0">
+              <div className="inset-0 overflow-hidden rounded-lg">
+                <img alt="Yawaré 베개" className="block h-full w-full object-cover" src={heroImage} />
+              </div>
+            </div>
             {/* 예약 정보 표시 */}
             <div className="mb-4 text-sm md:text-base text-[#333333]">
-              <p>현재 예약자 수: <span className="font-bold">{totalReservations.toLocaleString()}명</span></p>
-              <p>예약 종료까지: <span className="font-bold">{timeLeft}</span></p>
+              <p>현재 예약자 수: <span className="font-bold" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>{totalReservations ? totalReservations.toLocaleString():0}명</span></p>
+              <p>예약 종료까지: <span className="font-bold" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>{timeLeft}</span></p>
             </div>
 
             <button
@@ -153,7 +166,7 @@ export default function Home() {
               className="bg-[#197fe6] text-white h-12 px-5 py-0 rounded-lg min-w-[84px] max-w-[480px] w-full md:w-auto flex items-center justify-center hover:bg-[#1565c0] transition-colors"
             >
               <span className="text-base font-bold tracking-[0.24px] whitespace-nowrap" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                우선 예약 리스트에 등록하기
+              【先着100名様限定】<br></br>20%OFF 特別予約権利を取得する
               </span>
             </button>
           </div>
@@ -162,41 +175,48 @@ export default function Home() {
         {/* 노화의 보이지 않는 원인 Section */}
         <section className="bg-white py-12 md:py-16 w-full">
           <div className="flex flex-col items-center px-4 md:px-12 lg:px-48">
-            <h2 className="text-2xl md:text-[28px] font-bold text-[#333333] text-center mb-6 md:mb-8" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-              노화의 보이지 않는 원인
+          <h2 className="text-2xl md:text-[28px] font-bold text-[#333333] text-center mb-6 md:mb-8" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+              &quot;비싼 시술, 콜라겐 크림을 발라도 효과는 일시적이었어요.&quot; 
             </h2>
+            <div className="flex items-start justify-center py-8 w-full">
+                <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
+                  <img alt="창업자의 생각" className="block h-auto w-auto mx-auto" src={founderImage} />
+                </div>
+            </div>
             <div className="flex flex-col items-center max-w-[672px] mb-8">
               <p className="text-base md:text-lg text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                일반 베개는 옆으로 누웠을 때 목이 꺾이고 얼굴이 압박되어 수면 중에 주름이 깊어집니다.
+              매일 밤 8시간, 베개로 인해 <br></br>
+              피부는 계속 눌리고 있다는 <br></br>
+              사실을 깨달았을 때, 우리는 <br></br>
+              수면 환경 자체를 바꾸기로 했습니다.
               </p>
-            </div>
-            <div className="flex items-start justify-center py-8 w-full">
-              <div className="flex-1 h-full min-h-[200px] relative rounded-lg max-w-[896px] w-full">
-                <div className="absolute inset-0 overflow-hidden rounded-lg">
-                  <img alt="일반 베개의 문제점" className="absolute h-full w-full object-cover" src={imgImage1} />
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Yawaré의 인체공학적 솔루션 Section */}
-        <section className="bg-[#f6f7f8] py-12 md:py-16 w-full">
+        <section className="py-12 md:py-16 w-full" style={{background: 'var(--foreground)'}}>
           <div className="flex flex-col items-center px-4 md:px-12 lg:px-48">
-            <h2 className="text-2xl md:text-[28px] font-bold text-[#333333] text-center mb-6 md:mb-8" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-              'Yawaré'의 인체공학적 솔루션
-            </h2>
             <div className="flex flex-col items-center max-w-[672px] mb-8">
-              <p className="text-base md:text-lg text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                Yawaré는 얼굴과 베개의 접촉을 최소화하고 목을 자연스러운 곡선으로 유지하여 수면 중 압박으로부터 당신을 보호합니다.
+              <p className="text-base md:text-lg text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 600 }}>
+              Yawaré - 피부의 긴장을 부드럽게 완화하는 베개.<br></br>
+              단순한 숙면이 아닌,<br></br>
+              피부를 위한 물리적 케어의 시작입니다. 
               </p>
             </div>
             <div className="flex items-start justify-center py-8 w-full">
-              <div className="flex-1 h-full min-h-[200px] relative rounded-lg max-w-[896px] w-full">
-                <div className="absolute inset-0 overflow-hidden rounded-lg">
-                  <img alt="Yawaré 인체공학적 솔루션" className="absolute h-full w-full object-cover" src={imgImage2} />
-                </div>
+              <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                  <img alt="Yawaré 프로덕트 이미지" className="block h-auto w-auto object-cover mx-auto" src={brandlogo} />
               </div>
+            </div>
+            <h2 className="text-2xl md:text-[28px] font-bold text-[#333333] text-center mb-6 md:mb-8" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+             「Yawaré の 3つの物理学的真実: <br></br>
+              なぜ、この枕がシワを予防できるのか」
+            </h2>
+            <div className="flex items-start justify-center py-8 w-full">
+                <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                  <img alt="Yawaré 프로덕트 구조" className="block h-auto w-auto object-cover mx-auto" src={productImage2} />
+                </div>
             </div>
           </div>
         </section>
@@ -204,187 +224,271 @@ export default function Home() {
         {/* Features Section */}
         <section className="bg-white py-12 md:py-16 w-full">
           <div className="flex flex-col gap-8 items-start max-w-[1536px] px-4 md:px-12 lg:px-48 mx-auto w-full">
-            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start justify-center relative w-full">
+            <div className="flex flex-col gap-6 md:gap-8 items-start justify-center relative w-full">
               {/* Feature 1 */}
-              <div className="bg-[#f6f7f8] flex flex-col items-center pb-6 pt-6 px-6 rounded-xl self-stretch w-full md:w-[480px]">
-                <div className="pb-4">
-                  <div className="flex items-center justify-center">
-                    <div className="flex-none scale-y-[-1]">
-                      <div className="h-11 w-9">
-                        <img alt="아이콘" className="block w-full h-full" src={imgIcon} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-col items-center pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-2">
-                  <h3 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    얼굴 접촉 방지 설계
-                  </h3>
+                  <h2 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                  과학적으로 증명된 최적 높이 6cm
+                  </h2>
                 </div>
                 <div className="px-2">
                   <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    독자적인 사이드 슬로프 설계로, 옆으로 누웠을 때 얼굴이 베개에 직접 닿는 것을 방지하여 압박으로 인한 주름을 예방합니다.
+                    枕が高すぎても、低すぎても、朝の顔に違いが出ます。<br></br>
+                    体液の流れまで考えた、最適な高さ「6 cm」設計。<br></br>
+                    むくみにくく、首筋がすっきり整う、科学的バランスです。
                   </p>
+                </div>
+                <div className="flex flex-col items-start justify-center py-8 w-full">
+                  <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
+                      <img alt="Yawaré 피쳐1" className="block h-auto w-auto object-cover mx-auto" src={feature1} />
+                  </div>
+                  <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                    <img alt="Yawaré 피쳐1_1" className="block h-auto w-auto object-cover mx-auto" src={feature1_2} />
+                  </div>
                 </div>
               </div>
 
+              <hr className="border-t w-full border-gray-800 dark:border-white"></hr>
+
               {/* Feature 2 */}
-              <div className="bg-[#f6f7f8] flex flex-col items-center pb-6 pt-6 px-6 rounded-xl self-stretch w-full md:w-[480px]">
-                <div className="pb-4">
-                  <div className="flex items-center justify-center">
-                    <div className="flex-none scale-y-[-1]">
-                      <div className="h-11 w-9">
-                        <img alt="아이콘" className="block w-full h-full" src={imgIcon1} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="flex flex-col items-center pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-2">
                   <h3 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    높이 조절 기능
+                  横向き寝でも、顔に跡を残さない構造。
                   </h3>
                 </div>
                 <div className="px-1">
                   <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    아시아인 체형 맞춤 6cm 기본 높이에 2cm 높이 조절 패드가 포함되어, 최적의 높이로 목을 지지합니다.
+                  みなさんも横向きで寝ていますか？<br></br>
+                  女性の約7割は「横向き」で眠るといわれています。<br></br>
+                  でもその姿勢、あなたの顔と首を静かに押しつぶしているかもしれません。    
                   </p>
                 </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="bg-[#f6f7f8] flex flex-col items-center pb-11 pt-6 px-6 rounded-xl self-stretch w-full md:w-[480px]">
-                <div className="pb-4">
-                  <div className="flex items-center justify-center">
-                    <div className="flex-none scale-y-[-1]">
-                      <div className="h-11 w-9">
-                        <img alt="아이콘" className="block w-full h-full" src={imgIcon2} />
-                      </div>
+                <div className="flex items-start justify-center py-8 w-full">
+                    <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
+                      <img alt="피쳐2_그래프" className="block h-auto w-auto object-cover mx-auto" src={feature2} />
                     </div>
+                </div>
+                <div className="flex items-start justify-center py-8 w-full">
+                  <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                    <h3 className="text-xl font-bold text-center text-[#333333]" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                    &quot;압력이 누적되면, 주름은 물론 얼굴의 변형을 일으킵니다.&quot;
+                    </h3>
+                    <img alt="피쳐2_논문" className="block h-auto w-auto object-cover mx-auto" src={feature2_2} />
                   </div>
                 </div>
-                <div className="pb-2">
-                  <h3 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    수면 과학 연구 기반
-                  </h3>
-                </div>
                 <div>
-                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    수면 과학 연구 기반으로 피부 압력 감소 데이터가 효과를 증명합니다.
+                  <p className="text-[16px] text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 600 }}>
+                  Yawaré의 페이스 홀 설계는 옆으로 자더라도 <br></br>
+                  볼이 베개에 직접 닳지 않도록 설계되어, <br></br>
+                  어떤 자세에서도 당신의 아름다움을 지킬 수 있습니다. 
                   </p>
                 </div>
+                <div className="flex items-start justify-center py-8 w-full">
+                    <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                        <img alt="피쳐2_눕는모습습" className="block h-auto w-auto object-cover mx-auto" src={feature2_3} />
+                    </div>
+                  </div>
               </div>
-            </div>
 
-            {/* Graph Image */}
-            <div className="flex items-start justify-center py-8 w-full">
-              <div className="flex-1 h-full min-h-[200px] relative rounded-lg max-w-[896px] w-full">
-                <div className="absolute inset-0 overflow-hidden rounded-lg">
-                  <img alt="연구 데이터" className="absolute h-full w-full object-cover" src={imgImage3} />
+              <hr className="border-t w-full border-gray-800 dark:border-white"></hr>
+
+              {/* Feature 3 */}
+              <div className="flex flex-col items-center pb-11 pt-6 px-6 rounded-xl self-stretch w-full">
+                <div className="pb-2">
+                  <h3 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                    3) 베개와 피부의 마찰 최소화 - 실크
+                  </h3>
                 </div>
+                <div className="pb-2">
+                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
+                  寝返りのたびに起こる小さな摩擦が、肌を敏感にしていきます。<br></br>
+                  だからこそ、Yawaréはその摩擦をSILKでやさしく包みました。<br></br>
+                  </p>
+                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
+                  摩擦試験で実証された究極の滑らかさ。
+                  </p>
+                </div>
+                  <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                    <img alt="피쳐3_소재" className="block h-auto w-auto object-cover mx-auto" src={feature3} />
+                  </div>
               </div>
-            </div>
+          </div>
           </div>
         </section>
 
         {/* Customer Reviews Section */}
-        <section className="bg-[#f6f7f8] py-12 md:py-16 w-full">
+        <section className="w-full py-16" style={{background: 'var(--foreground)'}}>
+          {/* 가운데 정렬용 컨테이너 */}
+          <div className="mx-auto flex w-full max-w-[960px] flex-col px-4 md:px-8">
+            {/* 섹션 타이틀 */}
+            <h2 className="mb-10 text-center text-[16px] font-bold md:text-3xl text-[#333333]" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 600 }}>
+                Yawaré — 体験モニターによるリアルレビュー
+            </h2>
+
+            {/* 2x2 카드 그리드 (모바일 1열, md 이상 2열) */}
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+              {/* ▷ 카드 1: 상단 왼쪽 - 이미지 */}
+              <article className="flex items-center justify-center rounded-3xl bg-[#fefaf4] p-4">
+                <img
+                  src={heroImage}
+                  alt="편안하게 잠자는 모습"
+                  className="h-auto w-full rounded-3xl object-cover"
+                />
+              </article>
+
+              {/* ▷ 카드 2: 상단 오른쪽 - 텍스트 리뷰 */}
+              <article className="flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-[#fefaf4] p-6 md:p-8">
+                <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
+                  “아침에 베개 자국이 거의 남지 않아요.”
+                </p>
+                <p className="mb-4 text-sm leading-relaxed text-[#333333]">
+                  부드럽게 받쳐줘서 밤새 뒤척여도 얼굴이 편안합니다. 피부가 덜
+                  당기는 느낌이에요.
+                </p>
+                <div className="space-y-1 text-xs text-[#555555]">
+                  <p>회사원 · 40대 여성</p>
+                  <p>수면 만족도 ★★★★☆ (4.6/5)</p>
+                  <p>피부 스트레스 감소 체감 90%</p>
+                </div>
+              </article>
+
+              {/* ▷ 카드 3: 하단 왼쪽 - 텍스트 리뷰 */}
+              <article className="flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-[#fefaf4] p-6 md:p-8">
+                <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
+                  “실크 촉감 덕분에 피부가 편안해졌어요.”
+                </p>
+                <p className="mb-4 text-sm leading-relaxed text-[#333333]">
+                  얼굴이 베개에 붙는 느낌이 줄어들고, 아침에 붓기가 덜한 것 같아요.
+                </p>
+                <div className="space-y-1 text-xs text-[#555555]">
+                  <p>뷰티샵 운영 · 30대 여성</p>
+                  <p>수면 만족도 ★★★★☆ (4.8/5)</p>
+                  <p>피부 스트레스 완화 체감 75%</p>
+                </div>
+              </article>
+
+              {/* ▷ 카드 4: 하단 오른쪽 - 이미지 */}
+              <article className="flex items-center justify-center rounded-3xl bg-[#fefaf4] p-4">
+                <img
+                  src={heroImage}
+                  alt="숙면 중인 고객 모습"
+                  className="h-auto w-full rounded-3xl object-cover"
+                />
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Size Spec */}
+        <section className="bg-white py-12 md:py-16 w-full">
           <div className="flex flex-col gap-8 items-start max-w-[1536px] px-4 md:px-12 lg:px-48 mx-auto w-full">
-            <div className="flex flex-col items-center relative w-full">
-              <h2 className="text-2xl md:text-[30px] font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                만족한 고객들의 후기
-              </h2>
+            <div className="flex flex-col gap-6 md:gap-8 items-start justify-center relative w-full">
+              {/* Feature 1 */}
+              <div className="flex flex-col items-center pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
+                <div className="pb-2">
+                  <h3 className="text-lg font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
+                      SIZE SPEC
+                  </h3>
+                </div>
+              </div>
+              <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                <img alt="sizeSpec" className="block h-auto w-auto object-cover mx-auto" src={sizeSpec} />
+              </div>
+              <table className="w-full max-w-md border-collapse text-sm text-[#333333]">
+                <tbody>
+                  <tr className="border-b">
+                    <th className="w-1/3 bg-gray-50 px-4 py-2 text-left font-semibold">
+                      소재
+                    </th>
+                    <td className="px-4 py-2">
+                      독일 BASF 메모리폼
+                    </td>
+                  </tr>
+                  <tr className="border-b">
+                    <th className="bg-gray-50 px-4 py-2 text-left font-semibold">
+                      커버
+                    </th>
+                    <td className="px-4 py-2">
+                      100% Mulberry Silk
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="bg-gray-50 px-4 py-2 text-left font-semibold">
+                      크기
+                    </th>
+                    <td className="px-4 py-2">
+                      58cm x 36cm x 6cm
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start justify-center relative w-full">
-              {/* Review 1 */}
-              <div className="bg-white overflow-hidden relative rounded-xl shadow-md self-stretch w-full md:w-[480px] pb-32">
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-20 h-20">
-                  <div className="rounded-full w-full h-full relative">
-                    <div className="absolute inset-0 overflow-hidden rounded-full">
-                      <img alt="고객 사진" className="absolute left-0 top-0 w-full h-full object-cover" src={imgCustomerPhoto} />
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-28 flex gap-1">
-                  {[imgIcon3, imgIcon4, imgIcon3, imgIcon3, imgIcon4].map((icon, idx) => (
-                    <div key={idx} className="flex-none scale-y-[-1]">
-                      <div className="h-7 w-6">
-                        <img alt="별" className="block w-full h-full" src={icon} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute left-6 right-6 top-36">
-                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    "Yawaré 베개를 사용한 후로 아침에 목이 훨씬 편안해요. 피부에 자국도 남지 않아서 정말 만족합니다."
-                  </p>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-52">
-                  <p className="text-sm font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    김민지, 서울
-                  </p>
-                </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-12 md:py-16 w-full">
+          <div className="flex flex-col gap-8 items-start max-w-[1536px] px-4 md:px-12 lg:px-48 mx-auto w-full">
+            <h2 className="mb-6 text-center text-xl font-bold md:text-2xl text-[#333333]">
+              よくあるご質問
+            </h2>
+
+            <dl className="space-y-2">
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                  横向き寝でも使えますか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                はい。側面のフェイスホールで頬の圧を抑え、\n横向きでも跡がつきにくい形状です。
+                </dd>
               </div>
 
-              {/* Review 2 */}
-              <div className="bg-white overflow-hidden relative rounded-xl shadow-md self-stretch w-full md:w-[480px] pb-32">
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-20 h-20">
-                  <div className="rounded-full w-full h-full relative">
-                    <div className="absolute inset-0 overflow-hidden rounded-full">
-                      <img alt="고객 사진" className="absolute left-0 top-0 w-full h-full object-cover" src={imgCustomerPhoto1} />
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-28 flex gap-1">
-                  {[imgIcon3, imgIcon4, imgIcon3, imgIcon3, imgIcon4].map((icon, idx) => (
-                    <div key={idx} className="flex-none scale-y-[-1]">
-                      <div className="h-7 w-6">
-                        <img alt="별" className="block w-full h-full" src={icon} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute left-6 right-6 top-36">
-                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    "디자인도 예쁘고, 기능도 완벽해요. 옆으로 누워도 얼굴이 눌리지 않아서 주름 걱정을 덜었어요."
-                  </p>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-52">
-                  <p className="text-sm font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    이서연, 부산
-                  </p>
-                </div>
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                仰向けでも快適に使えますか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                中央のくぼみが頭を安定させ、\n首への負担をやわらげます。\n仰向けでも自然な姿勢を保てます。
+                </dd>
               </div>
 
-              {/* Review 3 */}
-              <div className="bg-white overflow-hidden relative rounded-xl shadow-md self-stretch w-full md:w-[480px] pb-32">
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-6 w-20 h-20">
-                  <div className="rounded-full w-full h-full relative">
-                    <div className="absolute inset-0 overflow-hidden rounded-full">
-                      <img alt="고객 사진" className="absolute left-0 top-0 w-full h-full object-cover" src={imgCustomerPhoto2} />
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-28 flex gap-1">
-                  {[imgIcon3, imgIcon4, imgIcon3, imgIcon3, imgIcon5].map((icon, idx) => (
-                    <div key={idx} className="flex-none scale-y-[-1]">
-                      <div className="h-7 w-6">
-                        <img alt="별" className="block w-full h-full" src={icon} />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="absolute left-6 right-6 top-36">
-                  <p className="text-sm text-[#333333] text-center leading-5" style={{ fontFamily: 'var(--font-noto-sans-kr)', fontWeight: 350 }}>
-                    "높이 조절 패드가 있어서 제 몸에 딱 맞게 사용할 수 있는 점이 가장 마음에 듭니다. 추천해요!"
-                  </p>
-                </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-52">
-                  <p className="text-sm font-bold text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-kr)' }}>
-                    박준서, 인천
-                  </p>
-                </div>
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                すでにある首のシワは薄くなりますか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                医療的にシワを改善するものではありません。\nただ、摩擦と圧力を減らし、\nこれ以上深くならない環境を整えます。\n※効果には個人差があります。
+                </dd>
               </div>
-            </div>
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                どのような方におすすめですか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                横向きが多い方、首元の跡が気になる方、\n肌への摩擦を減らしたい方におすすめです。
+                </dd>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                枕の高さは合わないことがありますか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                首を支える6cm設計で、多くの方に合いやすい高さです。\n付属の調整パッドで微調整も可能です。
+                </dd>
+              </div>
+
+              <div className="flex items-center gap-3 rounded-lg bg-[#f9f2e6] px-5 py-3 shadow-sm md:rounded-full">
+                <dt className="m-0 text-[0.95rem] font-bold text-[#333333]">
+                カバーは洗濯できますか？
+                </dt>
+                <dd className="m-0 text-xs leading-relaxed md:text-sm text-[#333333]">
+                はい。カバーは取り外して洗えます。\nデリケートな素材のため、\n洗濯ネットの使用をおすすめします。
+                </dd>
+              </div>
+            </dl>
           </div>
         </section>
 
@@ -461,15 +565,15 @@ export default function Home() {
       </div>
 
       {/* Floating Button */}
-      <button
+      {/* <button
         className="fixed bottom-8 right-8 bg-[#197fe6] text-white p-4 rounded-full shadow-lg hover:bg-[#1565c0] transition-colors z-50"
         onClick={scrollToEmailSection}
         aria-label="예약 섹션으로 이동"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
+          <path strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
-      </button>
+      </button> */}
 
       {/* Reservation Completion Popup */}
       {showPopup && (

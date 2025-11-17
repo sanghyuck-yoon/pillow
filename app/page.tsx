@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 
 // Figma 이미지 URL 상수
 const heroImage = "/image/Hero.png";

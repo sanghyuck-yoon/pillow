@@ -80,7 +80,7 @@ function FaqList() {
   };
 
   return (
-    <section className="mx-auto max-w-[90%] text-sm text-gray-900">
+    <section className="mx-auto max-w-[90%] px-6 md:px-12 lg:px-48">
       {faqItems.map((item, index) => {
         const isOpen = openIds.includes(item.id);
 
@@ -203,20 +203,15 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col items-start relative w-full min-h-screen" style={{ backgroundImage: "linear-gradient(90deg, rgba(246, 247, 248, 1) 0%, rgba(246, 247, 248, 1) 100%), linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 100%)" }}>
+    <div className="flex flex-col items-start relative w-full min-h-screen">
       {/* Header - Sticky */}
       <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-[rgba(246,247,248,0.8)]">
-        <div className="flex items-center justify-between p-4 px-4 md:px-16 lg:px-48 max-w-screen-xl mx-auto w-full">
-          <div className="flex flex-col">
-            <img
-              src={brandlogo}
-              alt="Yaware 로고"
-              className="relative max-h-[70px] max-w-[150px] object-cover"
-            />
-            {/* <h1 className="text-lg font-bold text-[#333333] tracking-[-0.27px]" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
-              Yawaré
-            </h1> */}
-          </div>
+        <div className="flex items-center justify-between p-2 max-w-screen-2xl mx-auto w-full">
+          <img
+            src={brandlogo}
+            alt="Yaware 로고"
+            className="max-h-[70px] md:h-auto max-w-[150px] md:w-auto object-cover"
+          />
           <button
             onClick={scrollToEmailSection}
             className="bg-[#F9CAD4] text-[#3A3A3A] px-4 py-2 rounded-full font-semibold tracking-[0.21px] hover:bg-[#F7BCC9] transition-colors"
@@ -230,7 +225,7 @@ export default function Home() {
       {/* Main Content */}
       <div className="w-full pt-16 bg-background">
         {/* Hero Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between gap-10 px-4 md:px-12 lg:px-48 py-10 md:py-20 w-full">
+      <section className="flex flex-col bg-box md:flex-row items-center justify-between gap-10 px-4 md:px-12 lg:px-48 py-10 md:py-20 w-full">
         {/* 왼쪽 컬럼: 텍스트 + 예약 정보 + CTA 버튼 */}
         <div className="flex flex-col gap-6 items-start w-full md:w-1/2">
           <div className="flex flex-col gap-2 w-full">
@@ -304,13 +299,13 @@ export default function Home() {
         </div>
       </section>
 
-        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 py-4">
+        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 md:px-12 lg:px-48 py-4">
           <h2 className="ty-keyline tracking-[0.15em]">
           わたしたちがYawaréを作った理由
           </h2>
         </div>
 
-        {/* 노화의 보이지 않는 원인 Section */}
+        {/* 브랜드 히스토리 Section */}
         <section className="bg-white px-6 py-12 md:py-16 w-full">
           <div className="flex flex-col items-center max-w-xl mx-auto space-y-6">
             <div className="flex flex-col max-w-[672px]">
@@ -331,7 +326,7 @@ export default function Home() {
         </section>
 
         {/* Yawaré의 인체공학적 솔루션 Section */}
-        <section className="py-12 md:py-16 w-full" style={{background: 'var(--foreground)'}}>
+        <section className="py-12 md:py-16 w-full bg-box">
           <div className="flex flex-col px-4 md:px-12 lg:px-48">
             <div className="flex flex-col items-center max-w-[672px] mb-8">
               <p className="ty-keyline">
@@ -346,9 +341,16 @@ export default function Home() {
               </div>
             </div>
             <h2 className="ty-keyline mb-6 md:mb-8">
-             「Yawaré の 3つの物理学的真実: <br className="block md:hidden"/>
-              なぜ、この枕がシワを予防できるのか」
+            「Yawaréの3つの&quot;物理的アプローチ&quot;」
             </h2>
+            <p className='ty-body text-left'>
+              肌への負担をやさしく整えるために。
+            </p>
+            <p className='ty-body text-left'>
+            1. むくみに配慮したCカーブ設計  <br></br>
+            2. 頬への圧を抑えるフェイスホール構造  <br></br>
+            3. 肌との摩擦を減らすシルクカバー
+            </p>
             <div className="flex items-start justify-center py-8 w-full">
                 <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
                   <img alt="Yawaré 프로덕트 이미지" className="block h-auto w-auto object-cover mx-auto" src={productImage2} />
@@ -357,9 +359,9 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 py-4">
+        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 md:px-12 lg:px-48 py-4">
           <h2 className="ty-keyline tracking-[0.15em]">
-          FEATURE
+          FEATURES / 特徴
           </h2>
         </div>
 
@@ -371,13 +373,21 @@ export default function Home() {
               <div className="flex flex-col pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-2">
                   <h2 className="ty-keyline">
-                  과학적으로 증명된 최적 높이 6cm
+                  1. 設計段階で導き出した、&quot;ちょうどいい高さ 6cm&quot;
                   </h2>
                 </div>
                 <p className="ty-body leading-relaxed">
-                  枕が高すぎても、低すぎても、朝の顔に違いが出ます。<br></br>
-                  体液の流れまで考えた、最適な高さ「6 cm」設計。<br></br>
-                  むくみにくく、首筋がすっきり整う、科学的バランスです。
+                首もとに負担がかかりにくい、<br className="block md:hidden"/>
+                自然な角度を保ちやすい高さです。<br></br>
+                高すぎる枕は首が持ち上がり、<br className="block md:hidden"/>
+                筋まわりがこわばりやすくなります。<br></br>
+                逆に低すぎる枕は、体液が頭に集まりやすく、<br className="block md:hidden"/>
+                朝のむくみにつながりやすいとされています。<br></br>
+                その中間である<b>&quot;約6cm&quot;</b>は、<br className="block md:hidden"/>
+                首のカーブをやさしく支え、<br className="block md:hidden"/>
+                無理のない姿勢をサポートしやすい高さです。<br></br>
+                <br></br>
+                ※感じ方には個人差があります。
                 </p>
                 <div className="flex flex-col items-start justify-center py-8 w-full">
                   <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
@@ -394,9 +404,9 @@ export default function Home() {
               {/* Feature 2 */}
               <div className="flex flex-col pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-2">
-                  <h3 className="ty-keyline">
-                  横向き寝でも、顔に跡を残さない構造。
-                  </h3>
+                  <h2 className="ty-keyline">
+                  2. 横向き寝でも、顔に跡を残さない構造。
+                  </h2>
                 </div>
                 <p className="ty-body leading-relaxed">
                 みなさんも横向きで寝ていますか？<br></br>
@@ -435,13 +445,13 @@ export default function Home() {
               {/* Feature 3 */}
               <div className="flex flex-col pb-11 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-5">
-                  <h3 className="ty-keyline">
-                    3) 베개와 피부의 마찰 최소화 - 실크
-                  </h3>
+                  <h2 className="ty-keyline">
+                    3. 베개와 피부의 마찰 최소화 - 실크
+                  </h2>
                 </div>
                 <div className="pb-2">
                   <p className="ty-body leading-relaxed">
-                  寝返りのたびに起こる小さな摩擦が、肌を敏感にしていきます。<br></br>
+                  寝返りのたびに起こる小さな摩擦が、<br className="block md:hidden"/> 肌を敏感にしていきます。<br></br>
                   だからこそ、Yawaréはその摩擦をSILKでやさしく包みました。<br></br>
                   </p>
                   <p className="ty-body leading-relaxed">
@@ -456,21 +466,21 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 py-4">
+        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 md:px-12 lg:px-48 py-4">
           <h2 className="ty-keyline tracking-[0.15em]">
           Yawaré — 体験モニターによるリアルレビュー
           </h2>
         </div>
 
         {/* Customer Reviews Section */}
-        <section className="w-full py-16" style={{background: 'var(--foreground)'}}>
+        <section className="w-full py-16 bg-box">
           {/* 가운데 정렬용 컨테이너 */}
           <div className="mx-auto flex w-full max-w-[960px] flex-col px-4 md:px-8">
 
             {/* 2x2 카드 그리드 (모바일 1열, md 이상 2열) */}
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {/* ▷ 카드 1: 상단 왼쪽 - 이미지 */}
-              <article className="flex items-center justify-center rounded-3xl bg-[#fefaf4] p-4">
+              <article className="flex items-center justify-center rounded-3xl bg-box p-4">
                 <img
                   src={review1}
                   alt="편안하게 잠자는 모습"
@@ -479,15 +489,15 @@ export default function Home() {
               </article>
 
               {/* ▷ 카드 2: 상단 오른쪽 - 텍스트 리뷰 */}
-              <article className="flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-[#fefaf4] p-6 md:p-8">
+              <article className="flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-box p-6 md:p-8">
                 <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
                 &quot;아침에 베개 자국이 거의 남지 않아요.&quot;
                 </p>
-                <p className="mb-4 text-sm leading-relaxed text-[#333333]">
+                <p className="mb-4 text-sm leading-relaxed ty-keyline">
                   부드럽게 받쳐줘서 밤새 뒤척여도 얼굴이 편안합니다. 피부가 덜
                   당기는 느낌이에요.
                 </p>
-                <div className="space-y-1 text-xs text-[#555555]">
+                <div className="space-y-1 text-xs ty-body">
                   <p>회사원 · 40대 여성</p>
                   <p>수면 만족도 ★★★★☆ (4.6/5)</p>
                   <p>피부 스트레스 감소 체감 90%</p>
@@ -495,14 +505,14 @@ export default function Home() {
               </article>
 
               {/* ▷ 카드 3: 하단 왼쪽 - 텍스트 리뷰 */}
-              <article className="order-4 md:order-3 flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-[#fefaf4] p-6 md:p-8">
+              <article className="order-4 md:order-3 flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-box p-6 md:p-8">
                 <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
                   &quot;실크 촉감 덕분에 피부가 편안해졌어요.&quot;
                 </p>
-                <p className="mb-4 text-sm leading-relaxed text-[#333333]">
+                <p className="mb-4 text-sm leading-relaxed ty-keyline">
                   얼굴이 베개에 붙는 느낌이 줄어들고, 아침에 붓기가 덜한 것 같아요.
                 </p>
-                <div className="space-y-1 text-xs text-[#555555]">
+                <div className="space-y-1 text-xs ty-body">
                   <p>뷰티샵 운영 · 30대 여성</p>
                   <p>수면 만족도 ★★★★☆ (4.8/5)</p>
                   <p>피부 스트레스 완화 체감 75%</p>
@@ -510,7 +520,7 @@ export default function Home() {
               </article>
 
               {/* ▷ 카드 4: 하단 오른쪽 - 이미지 */}
-              <article className="order-3 md:order-4 flex items-center justify-center rounded-3xl bg-[#fefaf4] p-4">
+              <article className="order-3 md:order-4 flex items-center justify-center rounded-3xl bg-box p-4">
                 <img
                   src={review2}
                   alt="숙면 중인 고객 모습"
@@ -521,9 +531,9 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 py-4">
+        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 md:px-12 lg:px-48 py-4">
           <h2 className="ty-keyline tracking-[0.15em]">
-          SIZE SPEC
+          SIZE SPEC / サイズ仕様
           </h2>
         </div>
 
@@ -540,15 +550,15 @@ export default function Home() {
                 <tbody>
                   <tr className="border-y">
                     <th className="w-1/3 bg-gray-50 px-4 py-2 text-center font-semibold border-r">
-                      소재
+                    素材
                     </th>
                     <td className="px-4 py-2 text-center">
-                      독일 BASF 메모리폼
+                    ドイツBASFメモリフォーム
                     </td>
                   </tr>
                   <tr className="border-y">
                     <th className="bg-gray-50 px-4 py-2 text-center font-semibold border-r">
-                      커버
+                    カバー
                     </th>
                     <td className="px-4 py-2 text-center">
                       100% Mulberry Silk
@@ -556,7 +566,7 @@ export default function Home() {
                   </tr>
                   <tr className="border-y">
                     <th className="bg-gray-50 px-4 py-2 text-center font-semibold border-r">
-                      크기
+                    サイズ
                     </th>
                     <td className="px-4 py-2 text-center">
                       58cm x 36cm x 6cm
@@ -569,7 +579,7 @@ export default function Home() {
         </section>
 
 
-        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 py-4">
+        <div className="w-full bg-[#f3f1e4] border-y border-[#222222] px-6 md:px-12 lg:px-48 py-4">
           <h2 className="ty-keyline tracking-[0.15em]">
           よくあるご質問
           </h2>
@@ -583,38 +593,31 @@ export default function Home() {
         {/* CTA Section */}
         <section id="email-signup-section" className="bg-white py-16 md:py-20 px-4 md:px-12 lg:px-48 w-full">
           <div className="h-auto max-w-[1536px] mx-auto">
-            <div className="flex flex-col items-center">
-              <h2 className="text-2xl md:text-[30px] font-bold text-[#333333] text-center mb-4" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
+            <div className="flex flex-col mb-2">
+              <h2 className="ty-keyline">
                 진정한 뷰티 슬립을 가장 먼저 경험하세요.
               </h2>
-            </div>
-            <div className="flex flex-col items-center mb-4">
-              <p className="text-base text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}>
-                수량 한정 · 사전 예약 시 특별 할인
-              </p>
-            </div>
-            <div className="flex flex-col items-center mb-8">
-              <p className="text-base text-[#333333] text-center" style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}>
+              <p className="text-left ty-body mt-2">
+                수량 한정 · 사전 예약 시 특별 할인 <br></br>
                 최고의 수면 뷰티를 가장 먼저 당신의 것으로 만드세요.
               </p>
             </div>
-            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start justify-center max-w-2xl mx-auto w-full">
+            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start max-w-2xl mx-auto w-full">
               <input
                 type="email"
-                placeholder="이메일 주소를 입력하세요"
-                className="bg-white border border-[#d1d5db] flex-1 min-w-0 rounded-lg px-4 py-3 text-base text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-[#197fe6]"
+                placeholder="メールアドレスを入力してください"
+                className="bg-white border border-[#d1d5db] flex-1 min-w-0 rounded-lg px-4 py-3 ty-body w-full focus:outline-none focus:ring-2 focus:ring-[#3A3A3A]"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}
               />
               <button
                 type="submit"
-                className="bg-[#197fe6] text-white h-12 px-5 py-0 rounded-lg min-w-[84px] flex items-center justify-center hover:bg-[#1565c0] transition-colors disabled:opacity-50"
+                className="bg-[#F9CAD4] ty-body h-12 px-5 py-0 rounded-[12px] min-w-[84px] flex items-center justify-center hover:bg-[#F7BCC9] transition-colors"
                 disabled={isSubmitting}
               >
-                <span className="text-base font-bold tracking-[0.24px] whitespace-nowrap" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
-                  {isSubmitting ? '예약 중...' : '지금 예약하기'}
+                <span className="ty-keyline mt-0 tracking-[0.24px] whitespace-nowrap">
+                  {isSubmitting ? '予約中...' : '特別予約'}
                 </span>
               </button>
             </form>
@@ -628,40 +631,13 @@ export default function Home() {
         <footer className="bg-white px-4 md:px-12 lg:px-48 py-8 w-full">
           <div className="flex flex-col gap-4 items-start max-w-[1536px] mx-auto">
             <div className="flex flex-col items-center relative w-full">
-              <p className="text-sm text-[#637588] text-center" style={{ fontFamily: 'var(--font-manrope)' }}>
+              <p className="text-sm ty-body">
                 Yawaré
               </p>
             </div>
-            {/* <div className="flex gap-6 items-start justify-center relative w-full">
-              <a href="#" className="text-sm text-[#637588] text-center" style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}>
-                이용약관
-              </a>
-              <a href="#" className="text-sm text-[#637588] text-center" style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}>
-                개인정보처리방침
-              </a>
-              <a href="#" className="text-sm text-[#637588] text-center" style={{ fontFamily: 'var(--font-noto-sans-jp)', fontWeight: 350 }}>
-                문의하기
-              </a>
-            </div>
-            <div className="flex flex-col items-center relative w-full">
-              <p className="text-sm text-[#637588] text-center" style={{ fontFamily: 'var(--font-manrope)' }}>
-                © 2024 Yawaré. All Rights Reserved.
-              </p>
-            </div> */}
           </div>
         </footer>
       </div>
-
-      {/* Floating Button */}
-      {/* <button
-        className="fixed bottom-8 right-8 bg-[#197fe6] text-white p-4 rounded-full shadow-lg hover:bg-[#1565c0] transition-colors z-50"
-        onClick={scrollToEmailSection}
-        aria-label="예약 섹션으로 이동"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-          <path strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </button> */}
 
       {/* Reservation Completion Popup */}
       {showPopup && (

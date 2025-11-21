@@ -8,11 +8,11 @@ import type { ReactNode } from 'react';
 const heroImage = "/image/Hero.png";
 const founderImage = "/image/founder.jpg";
 const productImage1 = "/image/product1.jpg";
-const productImage2 = "/image/product2.png";
-const feature1 = "/image/feature1.jpg";
-const feature1_2 = "/image/feature1_2.jpg";
-const feature2 = "/image/feature2.png";
-const feature2_2 = "/image/feature2_2.jpg";
+const productImage2 = "/image/product_explain.jpg";
+const feature1 = "/image/5.png";
+const feature1_2 = "/image/6.png";
+const feature2 = "/image/7.png";
+const feature2_2 = "/image/8.png";
 const feature2_3 = "/image/feature2_3.jpg";
 const feature3 = "/image/feature3.jpg";
 const sizeSpec = "/image/size.png";
@@ -33,36 +33,36 @@ const faqItems: FaqItem[] = [
   {
     id: 1,
     question: '横向き寝でも使えますか？',
-    answer: (<>はい。側面のフェイスホールで頬の圧を抑え、<br className="block md:hidden"/> 横向きでも跡がつきにくい形状です。</>),
+    answer: (<>はい。側面のフェイスホールが頬の圧力を逃し、<br className="block md:hidden"/>横向きでも跡がつきにくい構造になっています。</>),
   },
   {
     id: 2,
     question: '仰向けでも快適に使えますか？',
-    answer: (<>中央のくぼみが頭を安定させ、<br className="block md:hidden"/>首への負担をやわらげます。<br></br>仰向けでも自然な姿勢を保てます。</>),
+    answer: (<>中央のくぼみが頭を安定させ、<br className="block md:hidden"/>首への負担をやわらげます。<br></br>仰向けでも自然な姿勢を保ちやすい形状です。</>),
   },
   {
     id: 3,
     question: 'すでにある首のシワは薄くなりますか？',
     answer:
-      (<>医療的にシワを改善するものではありません。<br></br>ただ、摩擦と圧力を減らし、<br className="block md:hidden"/>これ以上深くならない環境を整えます。<br></br>※効果には個人差があります。</>),
+      (<>医療的にシワを改善するものではありません。<br></br>ただし、摩擦と圧力を抑えることで、<br className="block md:hidden"/>これ以上深くならない環境づくりをサポートします。<br></br>※効果には個人差があります。</>),
   },
   {
     id: 4,
     question: 'どのような方におすすめですか？',
     answer:
-      (<>横向きが多い方、<br className="block md:hidden"/>首元の跡が気になる方、<br className="block md:hidden"/>肌への摩擦を減らしたい方におすすめです。</>),
+      (<>横向き寝が多い方、<br className="block md:hidden"/>首元の跡が気になる方、<br className="block md:hidden"/>肌への摩擦を減らしたい方におすすめです。</>),
   },
   {
     id: 5,
-    question: '枕の高さは合わないことがありますか？',
+    question: '枕の高さが合わないことはありますか？',
     answer:
-      (<>首を支える6cm設計で、<br className="block md:hidden"/>多くの方に合いやすい高さです。<br></br>付属の調整パッドで微調整も可能です。</>),
+      (<>首を支える「6cm設計」で、<br className="block md:hidden"/>多くの方に合いやすい高さになっています。<br></br>また、付属の調整パッドで微調整も可能です。</>),
   },
   {
     id: 6,
     question: 'カバーは洗濯できますか？',
     answer:
-      (<>はい。カバーは取り外して洗えます。<br></br>デリケートな素材のため、<br className="block md:hidden"/>洗濯ネットの使用をおすすめします。</>),
+      (<>はい。カバーは取り外して洗えます。<br></br>デリケートなシルク素材のため、<br className="block md:hidden"/>洗濯ネットのご使用をおすすめします。</>),
   },
 ];
 
@@ -133,7 +133,7 @@ export default function Home() {
       const data = await response.json();
       setTotalReservations(data.totalReservations);
     } catch (error) {
-      console.error('예약자 수를 가져오는 데 실패했습니다:', error);
+      console.error('予約者数の取得に失敗しました：', error);
     }
   }, []);
 
@@ -149,7 +149,7 @@ export default function Home() {
       const difference = targetDate.getTime() - now.getTime();
 
       if (difference <= 0) {
-        setTimeLeft('예약 종료!');
+        setTimeLeft('予約終了！');
         return;
       }
 
@@ -182,16 +182,16 @@ export default function Home() {
 
       const data = await response.json();
       if (response.ok) {
-        setSubmitMessage('사전 예약이 완료되었습니다!');
+        setSubmitMessage('予約完了です！');
         setEmail('');
         setShowPopup(true);
         fetchReservations();
       } else {
-        setSubmitMessage(data.message || '사전 예약에 실패했습니다.');
+        setSubmitMessage(data.message || '予約に失敗しました。');
       }
     } catch (error) {
-      console.error('이메일 제출 중 오류 발생:', error);
-      setSubmitMessage('네트워크 오류가 발생했습니다.');
+      console.error('メール送信中にエラーが発生しました：', error);
+      setSubmitMessage('ネットワークエラーが発生しました。');
     } finally {
       setIsSubmitting(false);
     }
@@ -265,13 +265,13 @@ export default function Home() {
           {/* 예약 정보 */}
           <div className="ty-body">
             <p>
-              현재 예약자 수:{' '}
+            現在の予約者数:{' '}
               <span className="ty-body font-bold">
-                {totalReservations ? totalReservations.toLocaleString() : 0}명
+                {totalReservations ? totalReservations.toLocaleString() : 0}人
               </span>
             </p>
             <p>
-              예약 종료까지:{' '}
+            予約終了まで:{' '}
               <span className="ty-body font-bold">{timeLeft}</span>
             </p>
           </div>
@@ -378,11 +378,11 @@ export default function Home() {
                 </div>
                 <p className="ty-body leading-relaxed">
                 首もとに負担がかかりにくい、<br className="block md:hidden"/>
-                自然な角度を保ちやすい高さです。<br></br>
+                自然な角度を保ちやすい高さです。<br></br><br></br>
                 高すぎる枕は首が持ち上がり、<br className="block md:hidden"/>
                 筋まわりがこわばりやすくなります。<br></br>
                 逆に低すぎる枕は、体液が頭に集まりやすく、<br className="block md:hidden"/>
-                朝のむくみにつながりやすいとされています。<br></br>
+                朝のむくみにつながりやすいとされています。<br></br><br></br>
                 その中間である<b>&quot;約6cm&quot;</b>は、<br className="block md:hidden"/>
                 首のカーブをやさしく支え、<br className="block md:hidden"/>
                 無理のない姿勢をサポートしやすい高さです。<br></br>
@@ -405,32 +405,35 @@ export default function Home() {
               <div className="flex flex-col pb-6 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-2">
                   <h2 className="ty-keyline">
-                  2. 横向き寝でも、顔に跡を残さない構造。
+                  2. 横向きでも頬に跡がつきにくい、フェイスホール構造
                   </h2>
                 </div>
                 <p className="ty-body leading-relaxed">
-                みなさんも横向きで寝ていますか？<br></br>
-                女性の約7割は「横向き」で眠るといわれています。<br></br>
-                でもその姿勢、あなたの顔と首を静かに押しつぶしているかもしれません。    
+                日本の女性の約6割は横向きで眠るといわれています。
                 </p>
                 <div className="flex items-start justify-center py-8 w-full">
                     <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
                       <img alt="피쳐2_그래프" className="block h-auto w-auto object-cover mx-auto" src={feature2} />
                     </div>
                 </div>
+                <p className="ty-body leading-relaxed">
+                日本の女性の約6割は横向きで眠るといわれています。
+                </p>
                 <div className="flex items-start justify-center py-8 w-full">
                   <div className="inset-0 h-auto rounded-lg w-full max-w-[896px] w-full">
-                    <blockquote className="ty-hero-headline text-center my-8">
-                    &quot;압력이 누적되면, 주름은 물론 얼굴의 변형을 일으킵니다.&quot;
-                    </blockquote>
                     <img alt="피쳐2_논문" className="block h-auto w-auto object-cover mx-auto" src={feature2_2} />
                   </div>
                 </div>
                 <div>
                   <p className="ty-body leading-relaxed">
-                  Yawaré의 페이스 홀 설계는 옆으로 자더라도 <br></br>
-                  볼이 베개에 직접 닳지 않도록 설계되어, <br></br>
-                  어떤 자세에서도 당신의 아름다움을 지킬 수 있습니다. 
+                  そこで Yawaré は、<br className="block md:hidden"/>
+                  頬が直接押されにくい&quot;フェイスホール構造&quot; を採用しました。<br></br><br className="block md:hidden"/>
+
+                  横向きになっても圧力が分散しやすく、<br className="block md:hidden"/>
+                  肌への接触をやさしく整える設計です。<br></br><br className="block md:hidden"/>
+
+                  どんな姿勢でも、<br className="block md:hidden"/>
+                  あなたの横顔をそっと守りやすいように配慮しています。
                   </p>
                 </div>
                 <div className="flex items-start justify-center py-8 w-full">
@@ -446,21 +449,28 @@ export default function Home() {
               <div className="flex flex-col pb-11 pt-6 px-6 rounded-xl self-stretch w-full">
                 <div className="pb-5">
                   <h2 className="ty-keyline">
-                    3. 베개와 피부의 마찰 최소화 - 실크
+                  3. 肌との摩擦を最小限にする、シルクカバー
                   </h2>
                 </div>
                 <div className="pb-2">
                   <p className="ty-body leading-relaxed">
-                  寝返りのたびに起こる小さな摩擦が、<br className="block md:hidden"/> 肌を敏感にしていきます。<br></br>
-                  だからこそ、Yawaréはその摩擦をSILKでやさしく包みました。<br></br>
+                  寝返りを打つたびに生じる小さな摩擦は、
+                  肌にとっては負担となり、敏感さを招く原因にもなります。
+
+                  そこでYawaréは、
+                  その&quot;こすれ&quot;をシルクでやさしく包み込み、
+                  肌への刺激をできるだけ抑えることを目指しました。
                   </p>
-                  <p className="ty-body leading-relaxed">
-                  摩擦試験で実証された究極の滑らかさ。
-                  </p>
+                <p className='ty-keyline leading-relaxed'>摩擦試験で実証された、究極のやさしさ。</p>
                 </div>
-                  <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
-                    <img alt="피쳐3_소재" className="block h-auto w-auto object-cover mx-auto" src={feature3} />
-                  </div>
+                <div className="inset-0 h-auto rounded-lg w-full  max-w-[896px] w-full">
+                  <img alt="피쳐3_소재" className="block h-auto w-auto object-cover mx-auto" src={feature3} />
+                </div>
+                <p className="ty-body leading-relaxed pt-6">
+                  タオル・天然コットン・シルクを比較した摩擦テストでは、<br className="block md:hidden"/>
+                  シルクだけが化粧コットンの乱れがほとんどなく、<br className="block md:hidden"/>
+                  肌に触れる際の負担が小さいことが確認されています。
+                </p>
               </div>
           </div>
           </div>
@@ -491,31 +501,31 @@ export default function Home() {
               {/* ▷ 카드 2: 상단 오른쪽 - 텍스트 리뷰 */}
               <article className="flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-box p-6 md:p-8">
                 <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
-                &quot;아침에 베개 자국이 거의 남지 않아요.&quot;
+                  「朝起きても、ほとんど跡が残りませんでした。」
                 </p>
                 <p className="mb-4 text-sm leading-relaxed ty-keyline">
-                  부드럽게 받쳐줘서 밤새 뒤척여도 얼굴이 편안합니다. 피부가 덜
-                  당기는 느낌이에요.
+                一晩中寝返りをしても、<br className="block md:hidden"/>やわらかく支えてくれるので、<br className="block md:hidden"/>顔まわりがとてもラクです。<br></br>
+                朝のつっぱり感も少なくなりました。
                 </p>
                 <div className="space-y-1 text-xs ty-body">
-                  <p>회사원 · 40대 여성</p>
-                  <p>수면 만족도 ★★★★☆ (4.6/5)</p>
-                  <p>피부 스트레스 감소 체감 90%</p>
+                  <p>会社員・40代女性</p>
+                  <p>睡眠満足度 ★★★★☆（4.6/5）</p>
+                  <p>肌ストレス軽減を実感 90%</p>
                 </div>
               </article>
 
               {/* ▷ 카드 3: 하단 왼쪽 - 텍스트 리뷰 */}
               <article className="order-4 md:order-3 flex flex-col justify-between rounded-3xl border border-[#e0d8c8] bg-box p-6 md:p-8">
                 <p className="mb-4 text-lg font-semibold text-[#a06840] md:text-xl">
-                  &quot;실크 촉감 덕분에 피부가 편안해졌어요.&quot;
+                「シルクのような肌ざわりで、肌がとてもラクになりました。」
                 </p>
                 <p className="mb-4 text-sm leading-relaxed ty-keyline">
-                  얼굴이 베개에 붙는 느낌이 줄어들고, 아침에 붓기가 덜한 것 같아요.
+                頬が枕に張りつく感じが少なくなり、<br className="block md:hidden"/>朝のむくみも軽くなった気がします。
                 </p>
                 <div className="space-y-1 text-xs ty-body">
-                  <p>뷰티샵 운영 · 30대 여성</p>
-                  <p>수면 만족도 ★★★★☆ (4.8/5)</p>
-                  <p>피부 스트레스 완화 체감 75%</p>
+                  <p>ビューティサロン運営・30代女性</p>
+                  <p>睡眠満足度 ★★★★☆（4.8/5）</p>
+                  <p>肌ストレス軽減 実感 75%</p>
                 </div>
               </article>
 
@@ -553,7 +563,7 @@ export default function Home() {
                     素材
                     </th>
                     <td className="px-4 py-2 text-center">
-                    ドイツBASFメモリフォーム
+                    ドイツ BASF 社製 メモリーフォーム
                     </td>
                   </tr>
                   <tr className="border-y">
@@ -561,7 +571,7 @@ export default function Home() {
                     カバー
                     </th>
                     <td className="px-4 py-2 text-center">
-                      100% Mulberry Silk
+                    100% マルベリーシルク
                     </td>
                   </tr>
                   <tr className="border-y">
@@ -595,11 +605,12 @@ export default function Home() {
           <div className="h-auto max-w-[1536px] mx-auto">
             <div className="flex flex-col mb-2">
               <h2 className="ty-keyline">
-                진정한 뷰티 슬립을 가장 먼저 경험하세요.
+              真の美しさのスリップを最初に体験してください。
               </h2>
               <p className="text-left ty-body mt-2">
-                수량 한정 · 사전 예약 시 특별 할인 <br></br>
-                최고의 수면 뷰티를 가장 먼저 당신의 것으로 만드세요.
+                20%OFF 特別予約権利を取得する <br></br>
+                ※費用は一切かかりません。正式な開始時に通知します<br></br><br></br>
+                最高の睡眠の美しさを最初にあなたのものにしてください。
               </p>
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start max-w-2xl mx-auto w-full">
@@ -643,17 +654,17 @@ export default function Home() {
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-8 rounded-lg shadow-xl text-center max-w-sm w-full mx-4">
-            <h3 className="text-3xl font-bold text-[#333333] mb-4" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
-              사전 예약 완료!
+            <h3 className="ty-hero-headline mb-4" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
+              予約完了！
             </h3>
-            <p className="text-[#333333] mb-6" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
-              성공적으로 사전 예약이 완료되었습니다. 감사합니다!
+            <p className="text-[#3A3A3A] mb-6" style={{ fontFamily: 'var(--font-noto-sans-jp)' }}>
+              予約が正常に完了しました。ありがとうございます！
             </p>
             <button
-              className="bg-[#197fe6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1565c0] transition-colors"
+              className="bg-[#F9CAD4] text-[#3A3A3A] px-6 py-3 rounded-lg font-semibold hover:bg-[#F7BCC9] transition-colors"
               onClick={() => setShowPopup(false)}
             >
-              확인
+              確認
             </button>
           </div>
         </div>

@@ -8,14 +8,21 @@ interface SubscriptionFormProps {
 
 export default function SubscriptionForm({ onSuccess }: SubscriptionFormProps) {
   const [email, setEmail] = useState('');
+  const [isConsentGiven, setIsConsentGiven] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitMessage('');
+
+    if (!isConsentGiven) {
+      setSubmitMessage('メールアドレスの収集に同意してください。');
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const response = await fetch('/api/subscribe', {
@@ -30,6 +37,7 @@ export default function SubscriptionForm({ onSuccess }: SubscriptionFormProps) {
       if (response.ok) {
         setSubmitMessage('予約完了です！');
         setEmail('');
+        setIsConsentGiven(false);
         setShowPopup(true);
         if (onSuccess) {
           onSuccess();
@@ -60,24 +68,41 @@ export default function SubscriptionForm({ onSuccess }: SubscriptionFormProps) {
               最高の睡眠の美しさを最初にあなたのものにしてください。
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-start max-w-2xl mx-auto w-full">
-            <input
-              type="email"
-              placeholder="メールアドレスを入力してください"
-              className="bg-white border border-[#d1d5db] flex-1 min-w-0 rounded-lg px-4 py-3 ty-body w-full focus:outline-none focus:ring-2 focus:ring-[#3A3A3A]"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <button
-              type="submit"
-              className="bg-[#F9CAD4] ty-body h-12 px-5 py-0 rounded-[12px] min-w-[84px] flex items-center justify-center hover:bg-[#F7BCC9] transition-colors"
-              disabled={isSubmitting}
-            >
-              <span className="ty-keyline mt-0 tracking-[0.24px] whitespace-nowrap">
-                {isSubmitting ? '予約中...' : '特別予約'}
-              </span>
-            </button>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 items-start max-w-2xl mx-auto w-full">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                id="consent-checkbox"
+                className="w-4 h-4 text-[#3A3A3A] bg-gray-100 border-gray-300 rounded focus:ring-[#3A3A3A]"
+                checked={isConsentGiven}
+                onChange={(e) => setIsConsentGiven(e.target.checked)}
+              />
+              <label htmlFor="consent-checkbox" className="ty-body text-sm text-gray-700 cursor-pointer select-none">
+                プライバシーポリシーに同意し、メールアドレスの収集を許可します。
+              </label>
+            </div>
+            
+            <div className="flex flex-col md:flex-row gap-4 w-full">
+              <input
+                type="email"
+                placeholder="メールアドレスを入力してください"
+                className="bg-white border border-[#d1d5db] flex-1 min-w-0 rounded-lg px-4 py-3 ty-body w-full focus:outline-none focus:ring-2 focus:ring-[#3A3A3A]"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <button
+                type="submit"
+                className={`bg-[#F9CAD4] ty-body h-12 px-5 py-0 rounded-[12px] min-w-[84px] flex items-center justify-center transition-colors ${
+                  !isConsentGiven || isSubmitting ? 'opacity-50 cursor-not-allowed' : 'hover:bg-[#F7BCC9]'
+                }`}
+                disabled={!isConsentGiven || isSubmitting}
+              >
+                <span className="ty-keyline mt-0 tracking-[0.24px] whitespace-nowrap">
+                  {isSubmitting ? '予約中...' : '特別予約'}
+                </span>
+              </button>
+            </div>
           </form>
           {submitMessage && (
             <p className="mt-4 text-center text-[#333333]">{submitMessage}</p>

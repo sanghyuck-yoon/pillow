@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase';
+import { validateEmail } from '@/lib/utils';
 
 export async function POST(req: Request) {
   const { email } = await req.json();
@@ -7,8 +8,7 @@ export async function POST(req: Request) {
     return new Response(JSON.stringify({ message: '이메일 주소를 입력해주세요.' }), { status: 400 });
   }
 
-  const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  if (!emailRegex.test(email)) {
+  if (!validateEmail(email)) {
     return new Response(JSON.stringify({ message: '유효한 이메일 주소를 입력해주세요.' }), { status: 400 });
   }
 
@@ -28,16 +28,11 @@ export async function POST(req: Request) {
     return new Response(JSON.stringify({ message: '이미 사전 예약된 이메일 주소입니다.' }), { status: 409 });
   }
 
-  // 이메일 데이터베이스 저장 (UTC+9 기준 시간 저장)
-  const now = new Date();
-  const offset = now.getTimezoneOffset() * 60000; // 밀리초 단위의 UTC와의 차이
-  const KST_offset = 9 * 60 * 60 * 1000; // 9시간을 밀리초로 변환
-  const KST_time = new Date(now.getTime() - offset + KST_offset);
-
+  // 이메일 데이터베이스 저장 (UTC 저장 - Supabase가 timestamptz로 처리 권장)
   const { error } = await supabase
     .from('applicant')
     .insert([
-      { email, created_at: KST_time.toISOString() },
+      { email, created_at: new Date().toISOString() },
     ]);
 
   if (error) {

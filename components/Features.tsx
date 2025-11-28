@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Features() {
   const feature1 = "/image/5.png";
-  const feature1_2 = "/image/6.png";
+  const feature1_2 = "/image/6번.png";
   const feature2 = "/image/7.png";
   const feature2_2 = "/image/8.png";
   const feature2_3 = "/image/feature2_3.jpg";

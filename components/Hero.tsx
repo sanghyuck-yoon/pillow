@@ -15,7 +15,7 @@ export default function Hero({ totalReservations, onScrollToEmail }: HeroProps) 
     <>
       {/* Header - Sticky */}
       <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur-sm bg-[rgba(246,247,248,0.8)]">
-        <div className="flex items-center justify-between p-2 max-w-screen-2xl mx-auto w-full">
+        <div className="flex items-center justify-between p-1 max-w-screen-2xl mx-auto w-full">
           <img
             src={brandlogo}
             alt="Yaware 로고"

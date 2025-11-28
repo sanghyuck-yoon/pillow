@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function BrandStory() {
   const founderImage = "/image/founder.jpg";
   const brandImg = "/image/brandImg.png";
-  const productImage2 = "/image/product_explain.jpg";
+  const productImage2 = "/image/4.png";
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function BrandStory() {
                 <Image alt="Yawaré ブランドイメージ" className="block h-auto w-auto object-cover mx-auto" src={brandImg} width={896} height={500} />
             </div>
           </div>
-          <h2 className="ty-keyline mb-6 md:mb-8">
+          <h2 className="ty-keyline mb-6 md:mb-8 text-left">
           「Yawaréの3つの&quot;物理的アプローチ&quot;」
           </h2>
           <p className='ty-body text-left'>

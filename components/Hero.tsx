@@ -22,7 +22,7 @@ export default function Hero({ totalReservations, timeLeft, onScrollToEmail }: H
           />
           <button
             onClick={onScrollToEmail}
-            className="bg-[#F9CAD4] text-[#3A3A3A] px-4 py-2 rounded-full font-semibold tracking-[0.21px] hover:bg-[#F7BCC9] transition-colors"
+            className="bg-[#F9CAD4] text-[#3A3A3A] px-4 py-2 text-sm rounded-full font-semibold tracking-[0.21px] hover:bg-[#F7BCC9] transition-colors"
             style={{ fontFamily: 'var(--font-noto-sans-jp)' }}
           >
             特別予約
@@ -31,7 +31,7 @@ export default function Hero({ totalReservations, timeLeft, onScrollToEmail }: H
       </div>
 
       {/* Hero Section */}
-      <section className="flex flex-col bg-box md:flex-row items-center justify-between gap-10 px-4 md:px-12 lg:px-48 py-10 md:py-20 w-full">
+      <section className="flex flex-col bg-box md:flex-row items-center justify-between gap-10 px-4 md:px-12 lg:px-48 pt-24 pb-10 md:pt-32 md:pb-20 w-full">
         {/* 左カラム: テキスト + 予約情報 + CTAボタン */}
         <div className="flex flex-col gap-6 items-start w-full md:w-1/2">
           <div className="flex flex-col gap-2 w-full">

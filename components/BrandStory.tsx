@@ -28,7 +28,7 @@ export default function BrandStory() {
             </p>
           </div>
           <div className="flex items-start justify-center py-8 w-full">
-            <Image alt="創業者の想い" className="block h-40 w-40 mx-auto rounded-md opacity-80" src={founderImage} width={160} height={160} />
+            <Image alt="創業者の想い" className="block h-60 w-60 mx-auto rounded-md opacity-80" src={founderImage} width={320} height={320} />
           </div>
         </div>
       </section>

@@ -83,7 +83,7 @@ export default function FaqList() {
                   onClick={() => handleToggle(item.id)}
                   aria-expanded={isOpen}
                 >
-                  <span>{item.question}</span>
+                  <span className="ty-keyline">{item.question}</span>
                   <span className="text-xl leading-none">
                     {isOpen ? '−' : '＋'}
                   </span>

@@ -1,14 +1,15 @@
 import Image from 'next/image';
+import { useReservationCount } from '../hooks/useReservationCount';
 
 interface HeroProps {
   totalReservations: number;
-  timeLeft: string;
   onScrollToEmail: () => void;
 }
 
-export default function Hero({ totalReservations, timeLeft, onScrollToEmail }: HeroProps) {
+export default function Hero({ totalReservations, onScrollToEmail }: HeroProps) {
   const heroImage = "/image/Hero.png";
   const brandlogo = "/image/브랜드명.png";
+  const count = useReservationCount(totalReservations);
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function Hero({ totalReservations, timeLeft, onScrollToEmail }: H
           <img
             src={brandlogo}
             alt="Yaware 로고"
-            className="max-h-[70px] md:h-auto max-w-[150px] md:w-auto object-cover"
+            className="max-h-[50px] md:h-auto max-w-[150px] md:w-auto object-cover"
           />
           <button
             onClick={onScrollToEmail}
@@ -75,12 +76,8 @@ export default function Hero({ totalReservations, timeLeft, onScrollToEmail }: H
             <p>
             現在の予約者数:{' '}
               <span className="ty-body font-bold">
-                {totalReservations ? totalReservations.toLocaleString() : 0}人
+                {count.toLocaleString()}人
               </span>
-            </p>
-            <p>
-            予約終了まで:{' '}
-              <span className="ty-body font-bold">{timeLeft}</span>
             </p>
           </div>
 

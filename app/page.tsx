@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Hero from '@/components/Hero';
 import BrandStory from '@/components/BrandStory';
 import Features from '@/components/Features';
@@ -12,9 +12,6 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   const [totalReservations, setTotalReservations] = useState(0);
-  const [timeLeft, setTimeLeft] = useState('');
-
-  const targetDate = useMemo(() => new Date('2025-12-10T00:00:00'), []);
 
   const fetchReservations = useCallback(async () => {
     try {
@@ -32,29 +29,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [fetchReservations]);
 
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date();
-      const difference = targetDate.getTime() - now.getTime();
-
-      if (difference <= 0) {
-        setTimeLeft('予約終了！');
-        return;
-      }
-
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-      setTimeLeft(`D-${days} ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`);
-    };
-
-    calculateTimeLeft();
-    const interval = setInterval(calculateTimeLeft, 1000);
-    return () => clearInterval(interval);
-  }, [targetDate]);
-
   const scrollToEmailSection = () => {
     const section = document.getElementById('email-signup-section');
     section?.scrollIntoView({ behavior: 'smooth' });
@@ -64,7 +38,6 @@ export default function Home() {
     <div className="flex flex-col items-start relative w-full min-h-screen">
       <Hero 
         totalReservations={totalReservations} 
-        timeLeft={timeLeft} 
         onScrollToEmail={scrollToEmailSection} 
       />
 

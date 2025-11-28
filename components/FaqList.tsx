@@ -67,7 +67,7 @@ export default function FaqList() {
       </div>
 
       <section className="py-12 md:py-16 w-full">
-        <section className="mx-auto max-w-[90%] px-6 md:px-12 lg:px-48">
+        <section className="mx-auto max-w-[90%] px-1 md:px-12 lg:px-48">
           {faqItems.map((item) => {
             const isOpen = openIds.includes(item.id);
 

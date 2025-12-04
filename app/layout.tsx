@@ -26,8 +26,8 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Yawaré - 수면 주름 예방 베개",
-  description: "과학적으로 설계된 Yawaré 베개로 잠자는 동안의 수면 주름을 관리하세요.",
+  title: "Yawaré - 睡眠しわ予防枕",
+  description: "寝ている間も美しさを保ちましょう。",
 };
 
 export default function RootLayout({

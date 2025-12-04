@@ -41,7 +41,7 @@ export function useReservationCount(initialCount: number) {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCount((prevCount) => {
-        const increment = Math.floor(Math.random() * 16); // 0 to 15
+        const increment = Math.floor(Math.random() * 3); // 0 to 2
         const newCount = prevCount + increment;
 
         // Save to localStorage
